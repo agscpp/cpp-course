@@ -2,8 +2,13 @@
 
 #include <string>
 #include <unordered_map>
-#include <stdexcept>
 
 std::unordered_map<int, std::string> ReverseMap(const std::unordered_map<std::string, int>& map) {
-    throw std::runtime_error{"Not implemented"};
+    std::unordered_map<int, std::string> result;
+
+    for (const auto& i : map) {
+        result[i.second] = i.first;
+    }
+
+    return result;
 }
