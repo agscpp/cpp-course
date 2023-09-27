@@ -7,11 +7,13 @@
 
 int64_t CountPairs(const std::vector<int>& data, int x) {
     int64_t count = 0;
-    std::unordered_map<int, int> values;
+    std::unordered_map<int64_t, int64_t> values;
 
     for (const auto value : data) {
-        if (values.contains(x - value)) {
-            count += values[x - value];
+        int64_t diff = static_cast<int64_t>(x) - static_cast<int64_t>(value);
+
+        if (values.contains(diff)) {
+            count += values[diff];
         }
         values[value] += 1;
     }

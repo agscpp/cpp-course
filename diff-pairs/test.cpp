@@ -13,3 +13,7 @@ TEST_CASE("Empty") {
     CHECK(CountPairs({}, 0) == 0);
     CHECK(CountPairs({}, 5) == 0);
 }
+
+TEST_CASE("Big") {
+    CHECK(CountPairs({-622650072, 3, -622650072}, 0) == 0);
+}
