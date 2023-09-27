@@ -9,7 +9,6 @@ int BinPow(int a, int64_t b, int c) {
     while (b) {
         if (b & 1) {
             res = (res * cur) % c;
-            res %= c;
         }
         cur = (cur * cur) % c;
         b >>= 1;
