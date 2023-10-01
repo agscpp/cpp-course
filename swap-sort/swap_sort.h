@@ -1,11 +1,19 @@
 #pragma once
 
-#include <stdexcept>
-
 void Swap(int* a, int* b) {
-    throw std::runtime_error{"Not implemented"};
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
 }
 
 void Sort3(int* a, int* b, int* c) {
-    throw std::runtime_error{"Not implemented"};
+    if (*a > *b) {
+        Swap(a, b);
+    }
+    if (*b > *c) {
+        if (*a > *c) {
+            Swap(a, c);
+        }
+        Swap(b, c);
+    }
 }
