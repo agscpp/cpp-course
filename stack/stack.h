@@ -1,25 +1,34 @@
 #pragma once
 
 #include <cstddef>
+#include <list>
 
 class Stack {
 public:
     void Push(int x) {
+        values_.push_back(x);
     }
 
     bool Pop() {
+        if (Empty()) {
+            return false;
+        }
+        values_.pop_back();
         return true;
     }
 
     int Top() const {
-        return 0;
+        return !Empty() ? values_.back() : 0;
     }
 
     bool Empty() const {
-        return false;
+        return values_.empty();
     }
 
     size_t Size() const {
-        return 0;
+        return values_.size();
     }
+
+private:
+    std::list<int> values_;
 };
