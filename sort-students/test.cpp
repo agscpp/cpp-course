@@ -11,28 +11,28 @@ TEST_CASE("Signature") {
 
 TEST_CASE("Simple") {
     std::vector<Student> students = {
-        Student{"Ivan", "Ivanov", 2000, 12, 31},
-        Student{"Ray", "William", 2000, 1, 12},
-        Student{"Peter", "Harper", 2010, 5, 30},
-        Student{"Ethan", "Mosley", 2000, 12, 31},
+        Student{"Ivan", "Ivanov", 31, 12, 2000},
+        Student{"Ray", "William", 12, 1, 2000},
+        Student{"Peter", "Harper", 30, 5, 2010},
+        Student{"Ethan", "Mosley", 31, 12, 2000},
     };
 
     {
         SortStudents(&students, SortType::kByDate);
         CHECK(students == std::vector<Student>({
-                              Student{"Ray", "William", 2000, 1, 12},
-                              Student{"Ivan", "Ivanov", 2000, 12, 31},
-                              Student{"Ethan", "Mosley", 2000, 12, 31},
-                              Student{"Peter", "Harper", 2010, 5, 30},
+                              Student{"Ray", "William", 12, 1, 2000},
+                              Student{"Ivan", "Ivanov", 31, 12, 2000},
+                              Student{"Ethan", "Mosley", 31, 12, 2000},
+                              Student{"Peter", "Harper", 30, 5, 2010},
                           }));
     }
     {
         SortStudents(&students, SortType::kByName);
         CHECK(students == std::vector<Student>({
-                              Student{"Peter", "Harper", 2010, 5, 30},
-                              Student{"Ivan", "Ivanov", 2000, 12, 31},
-                              Student{"Ethan", "Mosley", 2000, 12, 31},
-                              Student{"Ray", "William", 2000, 1, 12},
+                              Student{"Peter", "Harper", 30, 5, 2010},
+                              Student{"Ivan", "Ivanov", 31, 12, 2000},
+                              Student{"Ethan", "Mosley", 31, 12, 2000},
+                              Student{"Ray", "William", 12, 1, 2000},
                           }));
     }
 }

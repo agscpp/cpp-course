@@ -1,8 +1,18 @@
 #pragma once
 
-#include <stdexcept>
+#include <utility>
 
 template <class Iterator, class Predicate>
 Iterator Partition(Iterator first, Iterator last, Predicate pred) {
-    throw std::runtime_error{"Not implemented"};
+    auto answer = first;
+
+    while (first != last) {
+        if (pred(*first)) {
+            std::swap(*first, *answer);
+            ++answer;
+        }
+        ++first;
+    }
+
+    return answer;
 }
