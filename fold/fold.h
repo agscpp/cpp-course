@@ -5,21 +5,21 @@
 
 struct Sum {
     template <class T>
-    void operator()(T* a, const T& b) {
+    void operator()(T* a, const T& b) const {
         *a += b;
     }
 };
 
 struct Prod {
     template <class T>
-    void operator()(T* a, const T& b) {
+    void operator()(T* a, const T& b) const {
         *a *= b;
     }
 };
 
 struct Concat {
     template <class T>
-    void operator()(std::vector<T>* a, const std::vector<T>& b) {
+    void operator()(std::vector<T>* a, const std::vector<T>& b) const {
         a->insert(a->end(), b.begin(), b.end());
     }
 };
