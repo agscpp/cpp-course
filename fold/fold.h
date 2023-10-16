@@ -30,6 +30,7 @@ private:
 
 public:
     Length() = delete;
+
     Length(size_t* value) : value_(value) {
     }
 
