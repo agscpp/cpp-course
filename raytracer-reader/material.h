@@ -9,7 +9,7 @@ struct Material {
     Vector diffuse_color;
     Vector specular_color;
     Vector intensity;
-    double specular_exponent;
-    double refraction_index;
-    Vector albedo;
+    double specular_exponent = 0.0;
+    double refraction_index = 1.0;
+    Vector albedo = {1, 0, 0};
 };

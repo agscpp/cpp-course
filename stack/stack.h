@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstddef>
-#include <list>
+#include <vector>
 
 class Stack {
 public:
@@ -30,5 +30,5 @@ public:
     }
 
 private:
-    std::list<int> values_;
+    std::vector<int> values_;
 };
