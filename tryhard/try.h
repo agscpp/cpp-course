@@ -22,7 +22,7 @@ public:
     Try(const T& object) : object_(std::make_unique<T>(object)) {
     }
 
-    Try(T&& object) : object_(std::make_unique<T>(std::forward<T>(object))) {
+    Try(T&& object) : object_(std::make_unique<T>(std::move(object))) {
     }
 
     template <typename P>
