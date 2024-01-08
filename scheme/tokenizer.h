@@ -109,8 +109,14 @@ public:
     }
 
     bool IsNesting() {
-        return number_open_brackets_ - number_close_brackets_ > 0 ||
+        return number_open_brackets_ > number_close_brackets_ ||
                token_ == Token(BracketToken::CLOSE);
+    }
+
+    void ThrowExceptionIfNeeded() {
+        if (number_close_brackets_ > number_open_brackets_) {
+            throw SyntaxError("Закрытых скобок должно быть меньше, чем закрытых");
+        }
     }
 
 private:
@@ -122,7 +128,7 @@ private:
     std::size_t number_close_brackets_ = 0;
 
     inline bool IsSymbol(char c) {
-        std::string s = "<=>*#?!-";
+        std::string s = "<=>*#?!-/";
         return ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9') ||
                s.find(c) != std::string::npos;
     }
