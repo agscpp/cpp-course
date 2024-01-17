@@ -29,13 +29,13 @@ public:
                 variables_[name] = value;
                 return;
             }
-            auto parent = parent_;
+            auto parent = parent_.lock();
             while (parent) {
                 if (parent->variables_.contains(name)) {
                     parent->variables_[name] = value;
                     return;
                 }
-                parent = parent->parent_;
+                parent = parent->parent_.lock();
             }
         }
 
@@ -43,7 +43,7 @@ public:
             if (variables_.contains(key)) {
                 return variables_[key];
             }
-            if (auto parent = parent_) {
+            if (auto parent = parent_.lock()) {
                 return parent->FindVariable(key);
             }
             return nullptr;
@@ -51,7 +51,7 @@ public:
 
     private:
         std::unordered_map<std::string, std::shared_ptr<Object>> variables_;
-        std::shared_ptr<State> parent_;
+        std::weak_ptr<State> parent_;
     };
 
     virtual ~Object() = default;
