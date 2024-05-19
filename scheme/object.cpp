@@ -1,11 +1,3 @@
-#include <climits>
-#include <cstddef>
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <vector>
-
-#include "error.h"
 #include "object.h"
 
 std::shared_ptr<Object> Function::Evaluate(std::shared_ptr<State> state) {

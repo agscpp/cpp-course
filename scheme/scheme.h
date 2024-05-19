@@ -1,9 +1,9 @@
 #pragma once
 
+#include "object.h"
+
 #include <memory>
 #include <string>
-
-#include "object.h"
 
 class Scheme {
 public:

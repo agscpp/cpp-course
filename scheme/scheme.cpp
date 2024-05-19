@@ -1,12 +1,11 @@
-#include <scheme.h>
-
-#include <sstream>
-#include <stdexcept>
-#include <string>
+#include "scheme.h"
 
 #include "error.h"
 #include "parser.h"
 #include "tokenizer.h"
+
+#include <sstream>
+#include <stdexcept>
 
 Scheme::Scheme() : state_(std::make_shared<Object::State>()) {
 }
