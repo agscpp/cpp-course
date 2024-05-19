@@ -1,5 +1,8 @@
 #pragma once
 
+#include "error.h"
+#include "tokenizer.h"
+
 #include <cstddef>
 #include <cstdint>
 #include <memory>
@@ -7,8 +10,6 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
-#include "error.h"
-#include "tokenizer.h"
 
 class Object : public std::enable_shared_from_this<Object> {
 public:

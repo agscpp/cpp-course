@@ -1,12 +1,13 @@
 #pragma once
 
+#include "error.h"
+
 #include <cctype>
 #include <cstddef>
 #include <cstdio>
 #include <string>
 #include <variant>
 #include <istream>
-#include "error.h"
 
 struct SymbolToken {
     std::string name;

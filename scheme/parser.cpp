@@ -1,12 +1,9 @@
-#include <object.h>
-#include <parser.h>
-#include <tokenizer.h>
-
-#include <stdexcept>
-#include <memory>
-#include <variant>
+#include "parser.h"
 
 #include "error.h"
+
+#include <stdexcept>
+#include <variant>
 
 std::shared_ptr<Object> Read(Tokenizer* tokenizer) {
     if (tokenizer->IsEnd()) {
